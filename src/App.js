@@ -4,7 +4,7 @@ import Movie from './hoc/Movie';
 
 function App() {
   return (
-    <Movie />
+    <Movie id={1} />
   );
 }
 
