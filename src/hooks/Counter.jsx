@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Fragment } from 'react/cjs/react.production.min';
+import React, { useState, useEffect, Fragment } from 'react';
 
 function Counter(props) {
     // const array = useState(0);
@@ -7,6 +6,18 @@ function Counter(props) {
     // const setState = array[1];//this.setState()
     const [count, setCount] = useState(0);
     const [name, setName] = useState('');
+
+    useEffect(
+        () => {
+            document.title = `${name} has clicked ${count} times`;
+            return () => {
+                console.log('clean up code');
+            }
+        }, [name, count]);
+
+    //componentDidMount
+    //componentDidUpdate
+    // componentWillUnmount   use return ()=>{} in useEffect function
 
     return (
         <Fragment>
