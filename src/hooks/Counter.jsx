@@ -1,4 +1,5 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
+import { useDocumentTitle } from './useDocumentTitle';
 
 function Counter(props) {
     // const array = useState(0);
@@ -7,14 +8,8 @@ function Counter(props) {
     const [count, setCount] = useState(0);
     const [name, setName] = useState('');
 
-    useEffect(
-        () => {
-            document.title = `${name} has clicked ${count} times`;
-            return () => {
-                console.log('clean up code');
-            }
-        }, [name, count]);
 
+    useDocumentTitle(`${name} has clicked count ${count} times`);
     //componentDidMount
     //componentDidUpdate
     // componentWillUnmount   use return ()=>{} in useEffect function
